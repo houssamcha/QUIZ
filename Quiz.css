@@ -1,0 +1,38 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+    .txt{
+      margin-top: 100px;
+
+    }
+    .form-check-label {
+      color: black;
+
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+
+    }
+    .form-check{
+      align-items: center;
+      background-color: white;
+      padding-top: 4%;
+      height: 65px;
+      width: 460px
+      
+      
+      }
+    .display{
+      /* padding-bottom: 20px; */
+
+    }
+    .ss{
+      display: flex;
+
+    }
