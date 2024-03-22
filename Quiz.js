@@ -3,96 +3,97 @@ const quizData = [
     question: "Question 1 en anglais?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option A",
-
+    test: "Test Anglais:"
   },
   {
     question: "Question 2 en anglais?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option B",
-
+    test: "Test Anglais:"
   },
   {
     question: "Question 3 en anglais?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option C",
+    test: "Test Anglais:"
   },
   {
     question: "Question 4 en anglais?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option D",
-    
+    test: "Test Anglais:"
   },
   {
     question: "Question 1 pour le test IQ?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option A",
-    
+    test: "Test IQ:"
   },
   {
     question: "Question 2 pour le test IQ?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option B",
-    
+    test: "Test IQ:"
   },
   {
     question: "Question 3 pour le test IQ?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option C",
-    
+    test: "Test IQ:"
   },
   {
     question: "Question 4 pour le test IQ?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option D",
-    
+    test: "Test IQ:"
   },
   {
     question: "Question 1 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option A",
-    
+    test: "Test Technique:"
   },
   {
     question: "Question 2 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option B",
-    
+    test: "Test Technique:"
   },
   {
     question: "Question 3 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option C",
-    
+    test: "Test Technique:"
   },
   {
     question: "Question 4 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option D",
-    
+    test: "Test Technique:"
   },
   {
     question: "Question 5 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option A",
-   
+    test: "Test Technique:"
   },
   {
     question: "Question 6 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option B",
-    
+    test: "Test Technique:"
   },
   {
     question: "Question 7 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option C",
-    
+    test: "Test Technique:"
   },
   {
     question: "Question 8 pour le test technique?",
     options: ["Option A", "Option B", "Option C", "Option D"],
     answer: "Option D",
-    
+    test: "Test Technique:"
   }
 ];
 
@@ -106,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let currentQuestionIndex = 0;
   let totalQuestions = 16; 
-  let timeRemaining = 15; 
+  let timeRemaining = 1200; 
   let timerInterval;
 
   function displayQuestion() {
@@ -197,5 +198,4 @@ document.addEventListener('DOMContentLoaded', function() {
   displayQuestion();
   startTimer();
 });
-
 
