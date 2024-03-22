@@ -1,118 +1,201 @@
-// Quiz data for all categories (English, IQ, and Technique)
-const quizData = {
-    English: [
-      {
-        question: "Kang thought the spicy tofu dish was tasty, so he ordered it again",
-        options: ["mainly", "fairly", "especially", "slightly"],
-        answer: "slightly"
-      },
-      // Add more English quiz questions here
-    ],
-    IQ: [
-      // Add IQ quiz questions here
-    ],
-    Technique: [
-      {
-        question: "Quel est le langage de programmation orienté objet ?",
-        options: ["Java", "Python", "JavaScript", "C++"],
-        answer: "Java"
-      },
-      {
-        question: "Quelle est la syntaxe correcte pour une boucle for en JAVA ?",
-        options: ["for (int i = 0; i < 5; i++)", "foreach (int i in array)", "for (i = 0; i <= 5)", "for (i < 5; i++)"],
-        answer: "for (int i = 0; i < 5; i++)"
-      },
-      {
-        question: "Lequel des éléments suivants gère une liste de pilotes de base de données dans JDBC?",
-        options: ["DriverManager", "Connection", "Statement", "Statement"],
-        answer: "DriverManager"
-      },
-      // Add more Technique quiz questions here
-    ]
-  };
-  
-  // Current category (default to English)
-  let currentCategory = "English";
-  
-  // Global variables to track quiz state
+const quizData = [
+  {
+    question: "Question 1 en anglais?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option A",
+
+  },
+  {
+    question: "Question 2 en anglais?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option B",
+
+  },
+  {
+    question: "Question 3 en anglais?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option C",
+  },
+  {
+    question: "Question 4 en anglais?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option D",
+    
+  },
+  {
+    question: "Question 1 pour le test IQ?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option A",
+    
+  },
+  {
+    question: "Question 2 pour le test IQ?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option B",
+    
+  },
+  {
+    question: "Question 3 pour le test IQ?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option C",
+    
+  },
+  {
+    question: "Question 4 pour le test IQ?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option D",
+    
+  },
+  {
+    question: "Question 1 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option A",
+    
+  },
+  {
+    question: "Question 2 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option B",
+    
+  },
+  {
+    question: "Question 3 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option C",
+    
+  },
+  {
+    question: "Question 4 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option D",
+    
+  },
+  {
+    question: "Question 5 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option A",
+   
+  },
+  {
+    question: "Question 6 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option B",
+    
+  },
+  {
+    question: "Question 7 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option C",
+    
+  },
+  {
+    question: "Question 8 pour le test technique?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option D",
+    
+  }
+];
+
+document.addEventListener('DOMContentLoaded', function() {
+  const titleElement = document.querySelector('h1.txt');
+  const timeText = document.querySelector('.time-text');
+  const progressBar = document.querySelector('.progress-bar');
+  const form = document.querySelector('form'); 
+  const displayElement = document.querySelector('.display');
+  const optionsContainer = document.querySelector('.options-container');
+
   let currentQuestionIndex = 0;
-  let score = 0;
-  let timeLeft = 180; // 3 minutes in seconds
+  let totalQuestions = 16; 
+  let timeRemaining = 15; 
   let timerInterval;
-  
-  function startQuiz() {
-    // Reset quiz state
-    currentQuestionIndex = 0;
-    score = 0;
-    timeLeft = 180;
-  
-    // Display the first question
-    displayQuestion();
-  
-    // Start the timer
-    timerInterval = setInterval(updateTimer, 1000);
-  }
-  
+
   function displayQuestion() {
-    const question = document.getElementById("question");
-    const options = document.querySelectorAll(".option-label");
-    const progressBar = document.getElementById("progress-bar");
-  
-    // Clear previous question content
-    question.textContent = "";
-    options.forEach(option => option.textContent = "");
-  
-    // Check if there are more questions in the current category
-    if (currentQuestionIndex >= quizData[currentCategory].length) {
-      clearInterval(timerInterval);
-      showResults();
-      return;
-    }
-  
-    // Update progress bar
-    progressBar.style.width = `${(currentQuestionIndex + 1) / quizData[currentCategory].length * 100}%`;
-  
-    // Display current question and options
-    const currentQuestion = quizData[currentCategory][currentQuestionIndex];
-    question.textContent = currentQuestion.question;
-    for (let i = 0; i < options.length; i++) {
-      options[i].textContent = currentQuestion.options[i];
-      options[i].value = currentQuestion.options[i];
-    }
+      const currentQuestion = quizData[currentQuestionIndex];
+      titleElement.textContent = currentQuestion.test;
+      displayElement.textContent = currentQuestion.question;
+      updateProgress();
+
+      optionsContainer.innerHTML = '';
+      currentQuestion.options.forEach((option, index) => {
+          const label = document.createElement('label');
+          label.classList.add('form-check-label');
+          label.innerHTML = `
+              <input class="form-check-input" type="radio" name="answer" id="answer${index + 1}" value="${option}">
+              ${option}
+          `;
+          const div = document.createElement('div');
+          div.classList.add('form-check');
+          div.appendChild(label);
+          optionsContainer.appendChild(div);
+      });
   }
-  
-  function updateTimer() {
-    const timeText = document.getElementById("time-text");
-    timeLeft--;
-  
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-  
-    timeText.textContent = `<span class="math-inline">\{minutes\.toString\(\)\.padStart\(2, "0"\)\}\:</span>{seconds.toString().padStart(2, "0")}`;
-  
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      alert("Out of time! Moving to the next question.");
-      checkAnswer(); // Submit the answer automatically if time runs out
-    }
+
+  function updateProgress() {
+      const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+      progressBar.style.width = `${progress}%`;
   }
-  
-  function checkAnswer() {
-    const selectedOption = document.querySelector('input[name="answer"]:checked');
-  
-    if (!selectedOption) {
-      alert("Please select an answer!");
-      return;
-    }
-  
-    const answer = selectedOption.value;
-    const correctAnswer = quizData[currentCategory][currentQuestionIndex].answer;
-  
-    if (answer === correctAnswer) {
-      score++;
-    }
-  
-    currentQuestionIndex++;
-    displayQuestion();
+
+  function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex >= totalQuestions) {
+          clearInterval(timerInterval);
+          alert('Fin du quiz !');
+          return;
+      }
+      displayQuestion();
   }
-  
+
+  function startTimer() {
+      timerInterval = setInterval(() => {
+          timeRemaining--;
+          const minutes = Math.floor(timeRemaining / 60);
+          const seconds = timeRemaining % 60;
+          timeText.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+          if (timeRemaining <= 0) {
+              clearInterval(timerInterval);
+              alert('Temps écoulé !');
+          }
+      }, 1000);
+  }
+
+  form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const selectedAnswer = form.querySelector('input[name="answer"]:checked');
+      if (!selectedAnswer) {
+          alert('Veuillez sélectionner une réponse.');
+          return;
+      }
+
+      const currentQuestion = quizData[currentQuestionIndex];
+      const correctAnswer = currentQuestion.answer;
+
+      if (selectedAnswer.value === correctAnswer) {
+          alert('Bonne réponse !');
+      } else {
+          alert('Mauvaise réponse. La réponse correcte est : ' + correctAnswer);
+      }
+
+      nextQuestion();
+  });
+
+  function changeTitle() {
+      if (currentQuestionIndex === 4) {
+          titleElement.textContent = 'Test IQ:';
+      } else if (currentQuestionIndex === 8) {
+          titleElement.textContent = 'Test Technique:';
+      } else {
+          titleElement.textContent = 'Test Anglais:';
+      }
+  }
+
+  function handleClick() {
+      changeTitle();
+  }
+
+  document.getElementById('nextButton').addEventListener('click', handleClick);
+
+  displayQuestion();
+  startTimer();
+});
+
+
