@@ -115,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
       titleElement.textContent = currentQuestion.test;
       displayElement.textContent = currentQuestion.question;
       updateProgress();
-
       optionsContainer.innerHTML = '';
       currentQuestion.options.forEach((option, index) => {
           const label = document.createElement('label');
@@ -130,6 +129,36 @@ document.addEventListener('DOMContentLoaded', function() {
           optionsContainer.appendChild(div);
       });
   }
+  function calculateScore() {
+    let score = 0;
+    quizData.forEach(question => {
+        const selectedAnswer = form.querySelector(`input[name="answer"]:checked`);
+        if (selectedAnswer && selectedAnswer.value === question.answer) {
+            score++;
+        }
+    });
+    return score;
+}
+
+function displayResults(score) {
+    const mainContainer = document.querySelector('main');
+    const resultContainer = document.createElement('div');
+    resultContainer.classList.add('container');
+    resultContainer.style.backgroundColor = score === totalQuestions ? '#4CAF50' : '#FF5733';
+    resultContainer.style.padding = '20px';
+    resultContainer.style.width = '500px';
+    resultContainer.style.height = '480px';
+    resultContainer.style.margin = '0 auto';
+
+    const message = document.createElement('p');
+    message.classList.add('text-center', 'text-white');
+    message.style.fontSize = '24px';
+    message.textContent = score === totalQuestions ? 'Bravo! Score: ' + score + ', Temps: ' + (1200 - timeRemaining) + ' secondes' : 'Dommage! Score: ' + score + ', Temps: ' + (1200 - timeRemaining) + ' secondes';
+    resultContainer.appendChild(message);
+
+    mainContainer.innerHTML = '';
+    mainContainer.appendChild(resultContainer);
+}
 
   function updateProgress() {
       const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
@@ -160,40 +189,30 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const selectedAnswer = form.querySelector('input[name="answer"]:checked');
-      if (!selectedAnswer) {
-          alert('Veuillez sélectionner une réponse.');
-          return;
-      }
+    event.preventDefault();
+    const selectedAnswer = form.querySelector('input[name="answer"]:checked');
+    if (!selectedAnswer) {
+        alert('Veuillez sélectionner une réponse.');
+        return;
+    }
 
-      const currentQuestion = quizData[currentQuestionIndex];
-      const correctAnswer = currentQuestion.answer;
+    const currentQuestion = quizData[currentQuestionIndex];
+    const correctAnswer = currentQuestion.answer;
 
-      if (selectedAnswer.value === correctAnswer) {
-          alert('Bonne réponse !');
-      } else {
-          alert('Mauvaise réponse. La réponse correcte est : ' + correctAnswer);
-      }
+    if (selectedAnswer.value === correctAnswer) {
+        alert('Bonne réponse !');
+    } else {
+        alert('Mauvaise réponse. La réponse correcte est : ' + correctAnswer);
+    }
 
-      nextQuestion();
-  });
+    nextQuestion();
 
-  function changeTitle() {
-      if (currentQuestionIndex === 4) {
-          titleElement.textContent = 'Test IQ:';
-      } else if (currentQuestionIndex === 8) {
-          titleElement.textContent = 'Test Technique:';
-      } else {
-          titleElement.textContent = 'Test Anglais:';
-      }
-  }
-
-  function handleClick() {
-      changeTitle();
-  }
-
-  document.getElementById('nextButton').addEventListener('click', handleClick);
+    if (currentQuestionIndex === totalQuestions) {
+        clearInterval(timerInterval);
+        const score = calculateScore();
+        displayResults(score);
+    }
+});
 
   displayQuestion();
   startTimer();
