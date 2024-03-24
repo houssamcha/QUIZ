@@ -28,11 +28,23 @@ main {
       
       
       }
-    .display{
-      /* padding-bottom: 20px; */
-
-    }
     .ss{
       display: flex;
 
+    }
+    @media (max-width: 600px) {
+      .container {
+        width: 90vw; /* 90% of the viewport width */
+        padding: 10px;
+      }
+    
+      .form-check {
+        width: 90vw;
+        height: auto;
+        padding-top: 2%;
+      }
+    
+      .txt {
+        margin-top: 50px; /* Adjust margin for smaller screens */
+      }
     }
