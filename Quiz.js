@@ -57,16 +57,15 @@ const quizData = [
     test: "Test Technique:"
   },
   {
-    question: "Quelle est la syntaxe correcte pour faire référence à un script externe appelé 'xxx.js' ?",
-    options: ["<script href='xxx.js'>", "<script name='xxx.js'>", "<script src='xxx.js'>", "<script file='xxx.js'>"],
-    answer: "<script src='xxx.js'>",
-    test: "Test Technique:"
-  },
-  {
     question: "En Java, comment déclarez-vous une variable de type entier ?",
     options: ["int num;", "num int;", "int[] num;", "integer num;"],
     answer: "int num;",
     test: "Test Technique:"
+  },
+  {
+    question:"Lequel des méthodes suivants est utilisé pour annuler une transaction JDBC?",
+    options:["removeTransaction()"," rollback()"," commit()"," roll()"],
+    answer:" rollback()"
   },
   {
     question: "Quel est le résultat de l'expression JavaScript '3 + 2 * 4' ?",
