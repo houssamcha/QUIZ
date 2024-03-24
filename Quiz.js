@@ -86,10 +86,9 @@ const quizData = [
     test: "Test Technique:"
   },
   {
-    question: "Comment ajouter un commentaire sur une ligne en JavaScript ?",
-    options: ["// Ceci est un commentaire", "<!-- Ceci est un commentaire -->", "/* Ceci est un commentaire */", "`Ceci est un commentaire`"],
-    answer: "// Ceci est un commentaire",
-    test: "Test Technique:"
+    question:"Lequel des éléments suivants gère une liste de pilotes de base de données dans JDBC?",
+    options:["DriverManager","Connection","Statement","Statement"],
+    answer:"DriverManager"
   },
   {
     question: "Quelle est la bonne façon de déclarer un tableau en Java ?",
