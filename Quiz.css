@@ -32,19 +32,12 @@ main {
       display: flex;
 
     }
-    @media (max-width: 600px) {
-      .container {
-        width: 90vw; /* 90% of the viewport width */
-        padding: 10px;
-      }
-    
-      .form-check {
-        width: 90vw;
-        height: auto;
-        padding-top: 2%;
-      }
-    
-      .txt {
-        margin-top: 50px; /* Adjust margin for smaller screens */
+    @media (max-width: 480px) {
+      .rr{
+        width: 360px; /* Set the width to 440px */
+        height: 300px; /* Set the height to 400px */
+        overflow-y: auto; /* Add vertical scroll if content overflows */
+        padding: 10px; /* Add padding */
+
       }
     }
