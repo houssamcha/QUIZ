@@ -1,101 +1,102 @@
 const quizData = [
+  // Test Anglais
   {
-    question: "Question 1 en anglais?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option A",
+    question: "What is the synonym of 'quick'?",
+    options: ["Slow", "Sluggish", "Rapid", "Weak"],
+    answer: "Rapid",
     test: "Test Anglais:"
   },
   {
-    question: "Question 2 en anglais?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option B",
+    question: "Which word is an antonym of 'ancient'?",
+    options: ["Old", "Modern", "Rare", "Historic"],
+    answer: "Modern",
     test: "Test Anglais:"
   },
   {
-    question: "Question 3 en anglais?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option C",
+    question: "Complete the following sentence: 'If it doesn't rain, we ____ go to the park.'",
+    options: ["will", "would", "can", "should"],
+    answer: "will",
     test: "Test Anglais:"
   },
   {
-    question: "Question 4 en anglais?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option D",
+    question: "What does the idiom 'break the ice' mean?",
+    options: ["To start a conflict", "To cool down", "To initiate a conversation", "To freeze something"],
+    answer: "To initiate a conversation",
     test: "Test Anglais:"
-  },
+  }, 
+  // Test IQ
   {
-    question: "Question 1 pour le test IQ?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option A",
+    question: "Si vous réorganisez les lettres 'CIFAIPC', vous aurez le nom d'un(e) :",
+    options: ["Ville", "Animal", "Océan", "Rivière"],
+    answer: "Océan",
     test: "Test IQ:"
   },
   {
-    question: "Question 2 pour le test IQ?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option B",
+    question: "Quel nombre complète le mieux l'analogie : 8:4 comme 10:",
+    options: ["3", "7", "24", "5"],
+    answer: "5",
     test: "Test IQ:"
   },
   {
-    question: "Question 3 pour le test IQ?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option C",
+    question: "Quelle forme complète la série ? Carré, Cercle, Triangle, ...",
+    options: ["Hexagone", "Carré", "Cercle", "Triangle"],
+    answer: "Carré",
     test: "Test IQ:"
   },
   {
-    question: "Question 4 pour le test IQ?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option D",
+    question: "Quel est le prochain nombre dans la séquence ? 2, 4, 8, 16, ...",
+    options: ["24", "32", "40", "64"],
+    answer: "32",
     test: "Test IQ:"
   },
+  // Test Technique (Java - JS JavaScript)
   {
-    question: "Question 1 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option A",
+    question: "Quelle méthode peut être utilisée pour analyser une chaîne JSON en JavaScript ?",
+    options: ["JSON.parse()", "JSON.stringify()", "JSON.toObject()", "JSON.fromString()"],
+    answer: "JSON.parse()",
     test: "Test Technique:"
   },
   {
-    question: "Question 2 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option B",
+    question: "En Java, comment déclarez-vous une variable de type entier ?",
+    options: ["int num;", "num int;", "int[] num;", "integer num;"],
+    answer: "int num;",
     test: "Test Technique:"
   },
   {
-    question: "Question 3 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option C",
+    question:"Lequel des méthodes suivants est utilisé pour annuler une transaction JDBC?",
+    options:["removeTransaction()"," rollback()"," commit()"," roll()"],
+    answer:" rollback()"
+  },
+  {
+    question: "Quel est le résultat de l'expression JavaScript '3 + 2 * 4' ?",
+    options: ["20", "14", "11", "5"],
+    answer: "11",
     test: "Test Technique:"
   },
   {
-    question: "Question 4 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option D",
+    question: "Comment créer une fonction en JavaScript ?",
+    options: ["function maFonction() {}", "create function maFonction() {}", "function:maFonction() {}", "function = maFonction() {}"],
+    answer: "function maFonction() {}",
     test: "Test Technique:"
   },
   {
-    question: "Question 5 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option A",
+    question: "Quelle instruction est utilisée pour écrire un test conditionnel en Java ?",
+    options: ["select", "if", "check", "for"],
+    answer: "if",
     test: "Test Technique:"
   },
   {
-    question: "Question 6 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option B",
-    test: "Test Technique:"
+    question:"Lequel des éléments suivants gère une liste de pilotes de base de données dans JDBC?",
+    options:["DriverManager","Connection","Statement","Statement"],
+    answer:"DriverManager"
   },
   {
-    question: "Question 7 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option C",
-    test: "Test Technique:"
-  },
-  {
-    question: "Question 8 pour le test technique?",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    answer: "Option D",
+    question: "Quelle est la bonne façon de déclarer un tableau en Java ?",
+    options: ["array[] monTableau;", "array monTableau[];", "int monTableau[];", "int[] monTableau;"],
+    answer: "int[] monTableau;",
     test: "Test Technique:"
   }
-];
+]; 
 
 document.addEventListener('DOMContentLoaded', function() {
   const titleElement = document.querySelector('h1.txt');
